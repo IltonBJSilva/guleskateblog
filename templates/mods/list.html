@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Mods</h1>
+
+{% for mod in mods %}
+
+<div class="card">
+    <h2>{{ mod.title }}</h2>
+
+    <p>
+        {{ mod.short_description }}
+    </p>
+
+    <small>
+        Minecraft {{ mod.minecraft_version }}
+    </small>
+</div>
+
+{% empty %}
+
+<p>
+    Nenhum mod cadastrado ainda.
+</p>
+
+{% endfor %}
+
+{% endblock %}
