@@ -1,3 +1,16 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Mod
+
+
+@admin.register(Mod)
+class ModAdmin(admin.ModelAdmin):
+    list_display = (
+        "title",
+        "minecraft_version",
+        "created_at",
+    )
+
+    prepopulated_fields = {
+        "slug": ("title",)
+    }
